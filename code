@@ -1,28 +1,21 @@
 #include <iostream>
-#include <Windows.h>
+#include <cmath>
 
 using namespace std;
 
-int intToBin(int n) {
-    if (n == 0) {
-        cout << 0;
-        return 0;
-    }
-
-    string bin = "";
-    while (n > 0) {
-        bin = char(n % 2 + '0') + bin;
-    }
-    n = n / 2;
+int countPositiveNumbers(int r, int k) {
+    return pow(r, k) - 1;
 }
 
-int main()
-{
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
-    int ch = 0, dv = 0, sum = 0;
-    cout << "Введите число для перевода в двоичную СС: ";
-    cin >> ch;
-    dv = intToBin(ch);
-    cout << "Количество единиц :" << __builtin_popcount(dv);
+int main() {
+    int r, k;
+    cout << "Введите основание системы счисления (r): ";
+    cin >> r;
+    cout << "Введите количество разрядов (k): ";
+    cin >> k;
+
+    int result = countPositiveNumbers(r, k);
+    cout << "Количество положительных чисел: " << result << endl;
+
+    return 0;
 }
